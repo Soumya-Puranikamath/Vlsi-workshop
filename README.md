@@ -20,5 +20,14 @@ RTL  of the design is expressed through hardware description language which will
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/25690e6d-550b-4de7-a0eb-664b3692db0b)
 
+**From software application to hardware:**
+Application software or apps enter into system software and get converted to hardware language.The major components of system software are os,compiler,assembler.
+**OS:**It converts application software to c,c++ or java language.
+**Compiler:**The compiler takes output of O.S as input and converts the codes in C,C++,Java etc.. into Instruction set(.exe files). These instructions will be dependent on type of hardware used.
+**Assembler:**Assembler converts the .exe files into binary language and provides it to the hardware, and hardware performs the respective operations.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/2d9593a4-09d9-457f-86cf-5aa9f246bd5c)
+
+
+
 
 
