@@ -83,14 +83,50 @@ These standard cell have different models based on electrical,HDL,spice,layout(A
 
 From above figure we can say that floor planning is nothing but dividing chip die area into different system building blocks and places for I/O pads.
 
-In 
+In micro floor planning dimensions,pin location and rows definitions are present.
+
+
+Multiple Vdd and ground connnections are given through rings and straps.
+
+3.Placement:Placement is done in two steps.One is global followed by detailed.During the Placement stage, components are positioned within the areas planned during the FloorPlanning stage. This includes placing the standard cells required in the design within the predefined cell boundaries. Placement is performed in two main stages:
+
+Global Placement:
+
+Standard cells are initially placed roughly in their target locations.
+Overlaps are allowed, and precise placement rules may not be followed.
+The focus is on an approximate distribution of cells to optimize overall design metrics like timing and wire length.
+
+Detailed Placement:
+
+Standard cells are adjusted to their final, exact positions.
+Placement rules are strictly enforced to avoid overlaps and ensure manufacturability.
+The objective is to place each cell optimally to meet timing, power, and area constraints.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/86cbd35c-0a9e-4d55-a7b3-379632111041)
+
+4.CTS:CTS which means Clock Tree Synthesis.Before performing the routing of signals, clock routing must be completed. The primary challenge in clock routing is clock skew, which is the difference in arrival times of the clock signal at different points in the design. To minimize clock skew, symmetric tree structures are used. These structures ensure that the clock signal reaches all parts of the design simultaneously by maintaining balanced path lengths.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/4d459760-576d-4d39-8e97-1cf8f664d64e)
+
+5.Routing:After clock routing is completed, signal routing begins, utilizing the remaining metal layers to make necessary connections within the design. This process occurs in two stages: Global Routing and Detailed Routing. In the Global Routing stage, the tool generates a high-level Routing Guide, which outlines the general paths for the connections and follows the instructions given in the Process Design Kit (PDK). In the Detailed Routing stage, the actual routing is performed according to the guide generated in the Global Routing stage.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/51fc4714-73e5-4707-b362-112644837399)
+
+6.Sign-off:After routing is completed, the chip moves to the Sign-off stage, where various checks ensure its integrity and readiness for fabrication. Physical verification checks include Design Rule Check (DRC) and Layout Versus Schematic (LVS). During DRC, the design is verified for any violations of the design rules provided by the Process Design Kit (PDK), ensuring manufacturability and reliability. LVS checks confirm that the layout matches the gate-level netlist functionality, ensuring the physical layout performs as intended. Additionally, timing checks such as Static Timing Analysis (STA) are performed to identify any timing violations, ensuring that all timing constraints are met and the chip will operate correctly at the desired clock speed. 
+
+Introduction to OPENLANE:
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/d7786e14-8d96-4e21-9e58-2ad280848d50)
+
+OpenLane is an open-source flow initiated by e-fabless for a true open-source tape-out experiment. It is a platform that supports various tools such as Yosys, OpenRoad, Magic, KLayout, and other open-source tools. OpenLane integrates the various steps of silicon implementation and abstracts them, making the process more accessible and streamlined. At e-fabless, they have developed an SoC family called Strive. Strive is a family of open-everything SoCs, featuring open PDK (Process Design Kit), open RTL (Register Transfer Level), and open EDA (Electronic Design Automation) tools. This open-source approach aims to democratize chip design and fabrication, allowing wider access and collaboration within the semiconductor industry.
+
+Strive SOC family is as follows:
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/c9d4bd98-c4c2-490e-a448-ed8a3e8af4f6)
+
+The main goal of OpenLane is to produce a clean GDS file without any human intervention, ensuring there are no LVS, DRC, or timing violations. It is primarily optimized for the Skywater 130nm OpenPDK but also supports XFab180 and GF130G processes. OpenLane works out of the box and is capable of hardening both macros and chips. It offers two modes of operation: autonomous and interactive. One of its features, Design Space Exploration, helps find the best set of flow configurations. Currently, OpenLane includes nearly 43 design examples, with more to be added soon.
 
 
 
-
-
-
-
-
+Invoking OPENLANE in Ubantu:
 
 
