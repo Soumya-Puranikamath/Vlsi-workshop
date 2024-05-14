@@ -22,10 +22,49 @@ RTL  of the design is expressed through hardware description language which will
 
 **From software application to hardware:**
 Application software or apps enter into system software and get converted to hardware language.The major components of system software are os,compiler,assembler.
-**OS:**It converts application software to c,c++ or java language.
-**Compiler:**The compiler takes output of O.S as input and converts the codes in C,C++,Java etc.. into Instruction set(.exe files). These instructions will be dependent on type of hardware used.
-**Assembler:**Assembler converts the .exe files into binary language and provides it to the hardware, and hardware performs the respective operations.
+
+1.OS:It converts application software to c,c++ or java language.
+
+2.Compiler:The compiler takes output of O.S as input and converts the codes in C,C++,Java etc.. into Instruction set(.exe files). These instructions will be dependent on type of hardware used.
+
+3.Assembler:Assembler converts the .exe files into binary language and provides it to the hardware, and hardware performs the respective operations.
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/2d9593a4-09d9-457f-86cf-5aa9f246bd5c)
+
+SOC Design and Openlane:
+
+ To design any ASIC digital circuit we need three things.
+ 1.EDA tools
+
+ 2.PDKS
+
+ 3.RTL designs
+
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/7870e2e2-9ae4-4195-aa81-7f39fa96b60b)
+
+RTL Design:
+RTL stands for REgister Transfer level.It is very crucial in  VLSI.
+Exactly, RTL design is pivotal in VLSI (Very Large Scale Integration) because it bridges the gap between high-level behavioral descriptions of a digital system and the low-level implementation using hardware components. At the RTL level, designers specify the functionality of the digital circuit in terms of data transfers between registers and the logical operations that manipulate these data. This abstraction allows for efficient synthesis into actual hardware components while maintaining a high level of flexibility and scalability in the design process.
+
+EDA Tools:
+EDA (Electronic Design Automation) tools play a crucial role in the design and verification of Integrated Circuits (ICs). These tools help engineers to create, simulate, and test the design of ICs to ensure they meet the desired performance specifications and density requirements. 
+
+PDK:
+A Process Design Kit (PDK) is indeed an essential collection of files and data used to model and facilitate the design of integrated circuits (ICs) within specific semiconductor fabrication processes. PDKs provide the necessary information and models that allow EDA tools to accurately simulate, design, and verify ICs. In 2020 Google collabarated with SkyWater Technology and made FOSS 130nm Production PDK OpenSource which is called as skywater pdk.It contains  process design rules like DRC,LVS,device models and digital standard cell libraries.
+
+*Process Design Rules : DRC , LVS , PEX
+*Device Models
+*Digital Standard Cell Libraries
+*I/O Libraries 
+
+Simplified RTL to GDS Flow:
+
+The RTL to GDS (RTL2GDS) flow involves several key stages that transform a high-level RTL description of a digital circuit into a GDSII file, which can be used for manufacturing the integrated circuit (IC). 
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/4612cf58-cff3-4218-84b0-6ba32f84ed75)
+
+
+
 
 
 
