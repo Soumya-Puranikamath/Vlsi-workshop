@@ -238,4 +238,6 @@ Here blue line indicates vddand grey line indicates ground and x marks indicates
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/ff0fe5ed-94ec-40ad-9396-f620cf11bc26)
 
+Pin placement and Routing:
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/449b4b1a-3cd7-485c-b0c9-fabda290e057)
 
