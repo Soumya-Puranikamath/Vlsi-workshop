@@ -175,8 +175,18 @@ To check the files after design is prepared.
 Initially every directory will be empty because we haven't performed any operations on the design.But we will have a direcrory named tmp and it contains different types of files.One of the files will be "merged.lef" file, it contains metal layer level and cell level information.merged.lef was created by merglef.py
 
 ![Screenshot from 2024-05-15 15-58-15](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f3bcaf8f-2bcd-4f96-9139-e8343cbb2181)
+tmp file contains empty files.It contains empty files.merged.lef file is also in tmp file,when it is opened its content will be as follows.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/22484b50-0a82-40ee-b0a4-8a3dcc457180)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e9ed4d50-ec53-430e-bc02-520589c61755)
+All layer and via level information will be present.
 
-
+After opening congig.tcl using less config.tcl command.
 ![Screenshot from 2024-05-15 15-58-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/05a0d25d-5c48-4fed-9107-2e8a8ced2608)
+
+
+
+
+
+
 
 
