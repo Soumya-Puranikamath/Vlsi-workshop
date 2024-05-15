@@ -125,6 +125,20 @@ Strive SOC family is as follows:
 
 The main goal of OpenLane is to produce a clean GDS file without any human intervention, ensuring there are no LVS, DRC, or timing violations. It is primarily optimized for the Skywater 130nm OpenPDK but also supports XFab180 and GF130G processes. OpenLane works out of the box and is capable of hardening both macros and chips. It offers two modes of operation: autonomous and interactive. One of its features, Design Space Exploration, helps find the best set of flow configurations. Currently, OpenLane includes nearly 43 design examples, with more to be added soon.
 
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/96cc2fff-e149-4d2c-9e98-339c69551f6c)
+
+ Each step in RTL to GDS2 uses different open source tools.
+ DFT uses fault which performs following functions.
+1.Scan Insertion
+2.Automatic Test Pattern Generation(ATPG)
+3.Test Pattern Compaction
+4.Fault coverage
+5.Fault Simulation
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/842f5e54-45dd-473d-b76d-071cae9440a1)
+
+
+
 
 
 Invoking OPENLANE in Ubantu:
