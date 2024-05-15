@@ -206,10 +206,36 @@ Utilisation factor=area of netlist/total area of core.
 It helps to determine how much area is utilised in chip die.If its 1 then chip die is completely utilised and no space left for extra cells.
 Aspect ratio=height/width.If aspect ratio is 1 then it is square otherwise it will be rectangle.
 
+Concept of pre placement cells:
+
+The concept of pre-placing cells involves reusing already designed blocks to avoid redesigning them repeatedly. Common pre-placed blocks, known as macros or IPs, include memory, comparators, and multiplexers. These blocks should be placed strategically, especially near input pins if they have numerous connections to them, to minimize wiring length. The term "pre-placed" refers to positioning these blocks during the floorplan stage, before the general placement stage. During the floorplan stage, these blocks are placed, and placement blockages are defined to prevent the tool from placing other standard cells too close to them during the placement stage. Utilizing pre-placed cells can significantly reduce the time-to-market by streamlining the design process and ensuring efficient layout.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/cc6e9feb-97ca-4a30-8f22-977447e757fd)
+
+Decoupling capacitor:
+Generally, pre-placed blocks, or macros, are high-power draining components. In some cases, the power they receive from the power source may be insufficient for proper switching due to voltage drops in the interconnecting wires, causing the signal to fall outside the noise margin. To address this issue, decoupling capacitors (decaps) are used. Decoupling capacitors store charge and provide a local reservoir of power to the high-power blocks, helping to stabilize the voltage and ensure that the signals remain within the acceptable noise margin. This helps maintain reliable performance of the pre-placed blocks by mitigating the effects of voltage drops.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e86c960b-1cfd-4db6-baf5-af519da67f71)
 
 
+Noise margin:
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/cca94902-6e25-4f0c-8a25-004585abdbdd)
 
+Power planning:
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0a17b13c-01ac-4bd8-9c1a-0726de738a3a)
+In the previous section, we discussed using decoupling capacitors (decap cells) to manage power for different blocks. However, decap cells have limitations such as increased leakage power and chip area. To address these issues, we use a technique called power planning. Power planning involves designing an efficient power distribution network to ensure reliable power delivery throughout the chip.There will be two switching phenomenon.
 
+1.Voltage drop : When a group of cells are simultaneously switching from 0 to 1, then every cell needs the power and In case the power is supplying from one source, there may occur the shotage of power and drop in the input voltage happens at that place. This is called as "Voltage Drop". The problem occurs only when the voltage level goes below the noise margin.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fada13b0-f4ad-4953-917a-c359a0d29ddc)
 
+2.Ground bounce:When most capacitors requires current to discharge from 1 to 0,every cell dumps power to the ground simultaneously through the same ground pin. This can cause the ground voltage, instead of staying at 0V, to experience a temporary rise, known as "ground bounce." Ground bounce becomes problematic when the voltage level exceeds the noise margin, potentially leading to signal integrity issues and circuit malfunction. Ensuring the ground voltage remains within acceptable limits is crucial for maintaining reliable chip performance.
+
+To prevent these abnormalities, a technique known as power planning is employed. This method involves creating separate power meshes: one for Vdd and another for ground. These meshes are constructed using the top two metal layers, chosen for their lower voltage drop characteristics. The meshes are distributed throughout the design and connected to multiple Vdd and ground sources, ensuring stable and reliable power delivery across the chip.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/3d9f5c37-f586-478d-8266-49b610cae735)
+
+Using this technique, whenever a cell needs power to switch from 0 to 1, it draws power from the nearest Vdd layer. Conversely, if a cell needs to discharge power, it will do so to the nearest ground layer.
+Here blue line indicates vddand grey line indicates ground and x marks indicates connection.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/ff0fe5ed-94ec-40ad-9396-f620cf11bc26)
 
 
