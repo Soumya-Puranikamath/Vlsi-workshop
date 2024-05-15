@@ -155,14 +155,12 @@ Add a Fake antenna didoe next to every cell input after placement.
 Run the Antenna Checker(Magic) on the routed layout.
 If the checker reports violation on the cell input pin, replace the fake diode cell by a real one.
 
-
-
-
-
 For physical verification DRC,LVS are done.
 magic tool is used for DRC and spice simulation and magic and netgen are used for LVS.
 
 
 Invoking OPENLANE in Ubantu:
+![Screenshot from 2024-05-13 15-23-30 - 1 (1)](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/10194b81-ac6c-4e6f-84cb-ef97ecbe368d)
 
-
+In desktop,work folder is present.It consists of Openlane working directory which leads to Openlane.To enter the bash file type docker after enterning Openlane environment.To invoke the software type ./flow.tcl -interactive
+Now we need to select the design on which we are going to perform RTL to GDS flow, we will be having 30 to 40 designs that are pre-built in the design folder in openlane and we will be selecting "picorv32a.v" design for this project.Now in order to perform synthesis(first stage of the project) on this design, first we need to setup the design and for that the command will be  **prep -design picorv32a**
