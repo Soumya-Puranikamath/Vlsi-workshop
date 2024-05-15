@@ -145,12 +145,18 @@ When routing is not done properly metal wire fabricated acts as antenna which da
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/dbbbd95b-afa1-4227-b502-686534bbf08b)
 
 To avoid this two solutions we opted.
-1.
-![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/5d559d9e-91e3-45e4-b585-f5fb3b59bb52)
-2.![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/357aeefb-7443-4a62-85b9-751dfac8fc67)
+1.Bridging attaches a higher layer intermediary. It requires Router awareness.
 
-To preventive approach taken to avoid this :
-![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/704678d1-d512-47af-8076-cca21a77b7dd)
+2.Add antenna diode cell to leak away the charges. Antenna diodes are provided by the SCL. 
+
+
+For this we took a preventive approach.
+Add a Fake antenna didoe next to every cell input after placement.
+Run the Antenna Checker(Magic) on the routed layout.
+If the checker reports violation on the cell input pin, replace the fake diode cell by a real one.
+
+
+
 
 
 For physical verification DRC,LVS are done.
