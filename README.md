@@ -137,8 +137,24 @@ The main goal of OpenLane is to produce a clean GDS file without any human inter
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/842f5e54-45dd-473d-b76d-071cae9440a1)
 
+ For physical implementation we use OpenROAD.
+ It performs functions as mentioned in figure.
+ ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/43f19621-b3d8-4745-836c-d46d6548556a)
+
+When routing is not done properly metal wire fabricated acts as antenna which damage the mosfet during fabrication.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/dbbbd95b-afa1-4227-b502-686534bbf08b)
+
+To avoid this two solutions we opted.
+1.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/5d559d9e-91e3-45e4-b585-f5fb3b59bb52)
+2.![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/357aeefb-7443-4a62-85b9-751dfac8fc67)
+
+To preventive approach taken to avoid this :
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/704678d1-d512-47af-8076-cca21a77b7dd)
 
 
+For physical verification DRC,LVS are done.
+magic tool is used for DRC and spice simulation and magic and netgen are used for LVS.
 
 
 Invoking OPENLANE in Ubantu:
