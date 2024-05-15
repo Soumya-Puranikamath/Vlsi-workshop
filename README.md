@@ -192,6 +192,8 @@ There will be total 1613 flip flops.
 Before Performing Synthesis the reports directory was null. After Synthesis completed  the reports that are generated during synthesis will be  in the reports directory.
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/26a8e433-ce3c-4f44-a707-03ea5977cbe3)
 
+when we open the 2-opensta.rpt file ,it showed delay and cap,fanout etc.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0e5f8e17-e4ea-4259-a200-424d8dd7413b)
 
 
 
