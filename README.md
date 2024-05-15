@@ -144,6 +144,8 @@ The main goal of OpenLane is to produce a clean GDS file without any human inter
 When routing is not done properly metal wire fabricated acts as antenna which damage the mosfet during fabrication.
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/dbbbd95b-afa1-4227-b502-686534bbf08b)
 
+
+
 To avoid this two solutions we opted.
 1.Bridging attaches a higher layer intermediary. It requires Router awareness.
 
@@ -168,5 +170,13 @@ Now we need to select the design on which we are going to perform RTL to GDS flo
 
 To check the files after design is prepared.
 ![Screenshot from 2024-05-15 15-33-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fc169058-d8ac-4f6c-9020-465828c9c208)
+
+
+Initially every directory will be empty because we haven't performed any operations on the design.But we will have a direcrory named tmp and it contains different types of files.One of the files will be "merged.lef" file, it contains metal layer level and cell level information.
+
+![Screenshot from 2024-05-15 15-58-15](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f3bcaf8f-2bcd-4f96-9139-e8343cbb2181)
+
+
+![Screenshot from 2024-05-15 15-58-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/05a0d25d-5c48-4fed-9107-2e8a8ced2608)
 
 
