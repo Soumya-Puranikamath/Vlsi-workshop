@@ -195,6 +195,19 @@ Before Performing Synthesis the reports directory was null. After Synthesis comp
 when we open the 2-opensta.rpt file ,it showed delay and cap,fanout etc.
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0e5f8e17-e4ea-4259-a200-424d8dd7413b)
 
+How to define width, height of core and die?
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/2c73e2bb-09cd-46f8-a15b-b0b327931ba7)
+
+Let us consider the basic netlest.Netlist is nothing but which defines all the connectivity between different components.When we are defining about the dimensions of chip,its nostly dependent on dimensions of gates present in the chip.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/179560ea-65bf-4a38-893e-be455adab596)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/3b0c26d8-2dcf-4b3d-b110-9d7c11a48dc3)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/8fa17ac2-24d7-4825-bb12-0ad604c0e3b1)
+Utilisation factor=area of netlist/total area of core.
+It helps to determine how much area is utilised in chip die.If its 1 then chip die is completely utilised and no space left for extra cells.
+Aspect ratio=height/width.If aspect ratio is 1 then it is square otherwise it will be rectangle.
+
+
+
 
 
 
