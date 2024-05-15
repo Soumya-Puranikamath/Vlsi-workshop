@@ -166,4 +166,7 @@ In desktop,work folder is present.It consists of Openlane working directory whic
 Now we need to select the design on which we are going to perform RTL to GDS flow, we will be having 30 to 40 designs that are pre-built in the design folder in openlane and we will be selecting "picorv32a.v" design for this project.Now in order to perform synthesis(first stage of the project) on this design, first we need to setup the design and for that the command will be  **prep -design picorv32a**
 ![Screenshot from 2024-05-15 15-22-45](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/2780bbfb-a119-41b1-b9db-7d7b882c145c)
 
+To check the files after design is prepared.
+![Screenshot from 2024-05-15 15-33-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fc169058-d8ac-4f6c-9020-465828c9c208)
+
 
