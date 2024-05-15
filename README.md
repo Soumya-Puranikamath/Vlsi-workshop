@@ -184,7 +184,13 @@ After opening congig.tcl using less config.tcl command.
 ![Screenshot from 2024-05-15 15-58-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/05a0d25d-5c48-4fed-9107-2e8a8ced2608)
 
 After the design is downloded,this step is followed.**run_synthesis** is used to run design.It takes few minutes to run design.When the process is completed it shows synthesis was succesfull.
+After compliting run synthesis,no of flip flops,and,or,nor etc will be given.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/7106e15a-d1ce-4d0d-8392-d2fd73a01e7a)
+There will be total 1613 flip flops.
+**flip flop ratio**=((no of flip flops)/(total no of cells))*100=(1613/14876)*100=10.84%
 
+Before Performing Synthesis the reports directory was null. After Synthesis completed  the reports that are generated during synthesis will be  in the reports directory.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/26a8e433-ce3c-4f44-a707-03ea5977cbe3)
 
 
 
