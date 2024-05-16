@@ -162,46 +162,60 @@ magic tool is used for DRC and spice simulation and magic and netgen are used fo
 
 
 Invoking OPENLANE in Ubantu:
+
 ![Screenshot from 2024-05-13 15-23-30 - 1 (1)](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/10194b81-ac6c-4e6f-84cb-ef97ecbe368d)
 
 In desktop,work folder is present.It consists of Openlane working directory which leads to Openlane.To enter the bash file type docker after enterning Openlane environment.To invoke the software type ./flow.tcl -interactive
 Now we need to select the design on which we are going to perform RTL to GDS flow, we will be having 30 to 40 designs that are pre-built in the design folder in openlane and we will be selecting "picorv32a.v" design for this project.Now in order to perform synthesis(first stage of the project) on this design, first we need to setup the design and for that the command will be  **prep -design picorv32a**
+
 ![Screenshot from 2024-05-15 15-22-45](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/2780bbfb-a119-41b1-b9db-7d7b882c145c)
 
 To check the files after design is prepared.
+
 ![Screenshot from 2024-05-15 15-33-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fc169058-d8ac-4f6c-9020-465828c9c208)
 
 
 Initially every directory will be empty because we haven't performed any operations on the design.But we will have a direcrory named tmp and it contains different types of files.One of the files will be "merged.lef" file, it contains metal layer level and cell level information.merged.lef was created by merglef.py
 
 ![Screenshot from 2024-05-15 15-58-15](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f3bcaf8f-2bcd-4f96-9139-e8343cbb2181)
+
 tmp file contains empty files.It contains empty files.merged.lef file is also in tmp file,when it is opened its content will be as follows.
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/22484b50-0a82-40ee-b0a4-8a3dcc457180)
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e9ed4d50-ec53-430e-bc02-520589c61755)
+
 All layer and via level information will be present.
 
 After opening congig.tcl using less config.tcl command.
+
 ![Screenshot from 2024-05-15 15-58-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/05a0d25d-5c48-4fed-9107-2e8a8ced2608)
 
 After the design is downloded,this step is followed.**run_synthesis** is used to run design.It takes few minutes to run design.When the process is completed it shows synthesis was succesfull.
 After compliting run synthesis,no of flip flops,and,or,nor etc will be given.
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/7106e15a-d1ce-4d0d-8392-d2fd73a01e7a)
+
 There will be total 1613 flip flops.
 **flip flop ratio**=((no of flip flops)/(total no of cells))*100=(1613/14876)*100=10.84%
 
 Before Performing Synthesis the reports directory was null. After Synthesis completed  the reports that are generated during synthesis will be  in the reports directory.
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/26a8e433-ce3c-4f44-a707-03ea5977cbe3)
 
 when we open the 2-opensta.rpt file ,it showed delay and cap,fanout etc.
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0e5f8e17-e4ea-4259-a200-424d8dd7413b)
 
 How to define width, height of core and die?
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/2c73e2bb-09cd-46f8-a15b-b0b327931ba7)
 
 Let us consider the basic netlest.Netlist is nothing but which defines all the connectivity between different components.When we are defining about the dimensions of chip,its nostly dependent on dimensions of gates present in the chip.
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/179560ea-65bf-4a38-893e-be455adab596)
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/3b0c26d8-2dcf-4b3d-b110-9d7c11a48dc3)
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/8fa17ac2-24d7-4825-bb12-0ad604c0e3b1)
+
 Utilisation factor=area of netlist/total area of core.
 It helps to determine how much area is utilised in chip die.If its 1 then chip die is completely utilised and no space left for extra cells.
 Aspect ratio=height/width.If aspect ratio is 1 then it is square otherwise it will be rectangle.
@@ -214,17 +228,21 @@ The concept of pre-placing cells involves reusing already designed blocks to avo
 
 Decoupling capacitor:
 Generally, pre-placed blocks, or macros, are high-power draining components. In some cases, the power they receive from the power source may be insufficient for proper switching due to voltage drops in the interconnecting wires, causing the signal to fall outside the noise margin. To address this issue, decoupling capacitors (decaps) are used. Decoupling capacitors store charge and provide a local reservoir of power to the high-power blocks, helping to stabilize the voltage and ensure that the signals remain within the acceptable noise margin. This helps maintain reliable performance of the pre-placed blocks by mitigating the effects of voltage drops.
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e86c960b-1cfd-4db6-baf5-af519da67f71)
 
 
 Noise margin:
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/cca94902-6e25-4f0c-8a25-004585abdbdd)
 
 Power planning:
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0a17b13c-01ac-4bd8-9c1a-0726de738a3a)
 In the previous section, we discussed using decoupling capacitors (decap cells) to manage power for different blocks. However, decap cells have limitations such as increased leakage power and chip area. To address these issues, we use a technique called power planning. Power planning involves designing an efficient power distribution network to ensure reliable power delivery throughout the chip.There will be two switching phenomenon.
 
 1.Voltage drop : When a group of cells are simultaneously switching from 0 to 1, then every cell needs the power and In case the power is supplying from one source, there may occur the shotage of power and drop in the input voltage happens at that place. This is called as "Voltage Drop". The problem occurs only when the voltage level goes below the noise margin.
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fada13b0-f4ad-4953-917a-c359a0d29ddc)
 
 2.Ground bounce:When most capacitors requires current to discharge from 1 to 0,every cell dumps power to the ground simultaneously through the same ground pin. This can cause the ground voltage, instead of staying at 0V, to experience a temporary rise, known as "ground bounce." Ground bounce becomes problematic when the voltage level exceeds the noise margin, potentially leading to signal integrity issues and circuit malfunction. Ensuring the ground voltage remains within acceptable limits is crucial for maintaining reliable chip performance.
@@ -239,6 +257,7 @@ Here blue line indicates vddand grey line indicates ground and x marks indicates
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/ff0fe5ed-94ec-40ad-9396-f620cf11bc26)
 
 Pin placement and Routing:
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/449b4b1a-3cd7-485c-b0c9-fabda290e057)
 
 To ensure the floorplan runs smoothly, designers must carefully manage certain parameters, known as switches, that influence the floorplan. For instance, the utilization factor and aspect ratio are crucial switches. Designers should verify these switches before initializing the floorplan to ensure they align with the project requirements. The image below illustrates the various types of switches used during the floorplan stage.
@@ -254,8 +273,13 @@ vertical metal willbe one more thaan horizontal metal.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/81e8a3d1-0ea4-4d0d-83c5-341083e7cc68)
 
-After completion of the floorplan we can check the report generated by the tool and check some of the aspects like die area etc.. , but in order to view the design in GUI we should use MAGIC tool.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e3fdabdb-5f27-4384-bcef-bf0137bb017f)
 
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f2815625-cb94-4c89-8a1d-babd726ff741)
 
+In order to enter into the MAGIC tool ,command we use:
 
+**magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &**
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/6fe9aa4d-0fc8-4a96-abb5-d75e54afc964)
 
