@@ -187,7 +187,7 @@ tmp file contains empty files.It contains empty files.merged.lef file is also in
 
 All layer and via level information will be present.
 
-After opening congig.tcl using less config.tcl command.
+After opening config.tcl using less config.tcl command.
 
 ![Screenshot from 2024-05-15 15-58-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/05a0d25d-5c48-4fed-9107-2e8a8ced2608)
 
@@ -271,8 +271,6 @@ When we open config.tcl file in picorv32a,it open ups like the below figure.
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/3bc178db-6e55-4224-9043-05c3b7175e55)
 vertical metal willbe one more thaan horizontal metal.
 
-![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/81e8a3d1-0ea4-4d0d-83c5-341083e7cc68)
-
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e3fdabdb-5f27-4384-bcef-bf0137bb017f)
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f2815625-cb94-4c89-8a1d-babd726ff741)
@@ -308,4 +306,25 @@ During placement, it's crucial to consider the estimated wire length and positio
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/56847923-ab77-47e0-8ab5-6268f93546c5)
 
+
+After run_placement:
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0fb3cb2c-200f-49fd-8f94-0b9384f1a991)
+
+After the placement is done,to check the cells are correctly placed or not we go for GUI.The command will be
+**magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &**
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fa41bd99-1b12-4a7b-8228-816edf66f9f7)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0f6149d0-b74a-4e12-a188-8c5b56cf335e)
+
+
+**Design library cell using Magic Layout and ngspice characterization**:
+
+Inception of Layout and CMOS fabrication process:
+Lab steps to create std cell layout and extract spice netlist:
+
+To extract the SPICE netlist for an inverter from the MAGIC tool for simulation in ngspice, follow these steps:
+
+First, you need to create an extraction file for the inverter. This can be done by using the `extract all` command in the tkcon window within MAGIC. Running this command will generate an extracted file in the `vsdstdcelldesign` directory.
 
