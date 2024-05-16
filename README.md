@@ -283,3 +283,4 @@ In order to enter into the MAGIC tool ,command we use:
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/6fe9aa4d-0fc8-4a96-abb5-d75e54afc964)
 
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/5c70e385-478d-4546-aecf-5f9b0af2b2a6)
