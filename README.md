@@ -284,3 +284,28 @@ In order to enter into the MAGIC tool ,command we use:
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/6fe9aa4d-0fc8-4a96-abb5-d75e54afc964)
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/5c70e385-478d-4546-aecf-5f9b0af2b2a6)
+
+To center the design on the screen, start by selecting the entire design by pressing 'S' on the keyboard followed by 'V'. 
+
+To zoom into a specific area, left-click and drag to select the area, then right-click and press 'Z' to zoom in on the selected region.
+
+To view the details of a particular cell in the design, move the cursor to the cell and press 'S' to select it. Then, in the tkcon window, type the command "what" to display the details of the selected item.
+
+Netlist binding and initial place design:
+
+In the netlist, each element is represented by a unique shape, such as an AND gate having one shape and an OR gate having another. However, in a library, every element is depicted with only a square or rectangular shape. The library contains all the elements ready for use, each accompanied by its properties like area, delay, etc. Additionally, there are multiple versions of the same element, each with different properties.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f634a02b-486b-479e-bd11-dd7e13db3e93)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/af7daf04-f93b-45e6-822b-f8737cc26f4e)
+
+
+In the image above, there are three different sets of identical elements. The larger elements are faster but take up more area, while the smaller elements occupy less area but operate more slowly compared to the larger ones.
+
+Optimize placement using estimated wire-length and capacitance:
+
+During placement, it's crucial to consider the estimated wire length and position the cells accordingly. This estimation is done by calculating the distance from the input sources of the cells to the output sinks they drive.In the example above, the tool places the blocks based on the estimated wire length, as illustrated in the figure below.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/56847923-ab77-47e0-8ab5-6268f93546c5)
+
+
