@@ -328,3 +328,5 @@ To extract the SPICE netlist for an inverter from the MAGIC tool for simulation 
 
 First, you need to create an extraction file for the inverter. This can be done by using the `extract all` command in the tkcon window within MAGIC. Running this command will generate an extracted file in the `vsdstdcelldesign` directory.
 
+
+
