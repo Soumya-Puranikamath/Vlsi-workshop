@@ -388,6 +388,9 @@ Lab Introduction to Sky130 pdk's and steps to download labs: To download the lab
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e97947c7-9e4d-4f99-ba89-255b2db1b76e)
 
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/d2823f04-4882-424a-89b9-e01c301067be)
+
+
 Lab Introduction to Magic and steps to load sky130 tech-rule:
 Use the command magic -d XR to open the Magic tool.
 
@@ -398,6 +401,12 @@ select the area in GUI and click on m3layer in layer box and press P.The selcted
 
 Lab exercise to fix Poly-9 error in Sky130 tech file:To load poly9 file,type **load poly** in tkcon terminal.
 
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/63964005-e1b6-402b-a1c6-3bc3dfcdf2de)
 
+Comparing the spacing between Poly resistor and poly in the layout with the actual value in the Skywater website. In the image below we can clearly see the error in spacing between both. So now lets solve it.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/888a7edd-64b6-4ff9-937d-6702917708f6)
+
+To solve the issue we should make changes in poly9 file as below showed.
 
 
