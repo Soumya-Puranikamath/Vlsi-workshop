@@ -328,5 +328,76 @@ To extract the SPICE netlist for an inverter from the MAGIC tool for simulation 
 
 First, you need to create an extraction file for the inverter. This can be done by using the `extract all` command in the tkcon window within MAGIC. Running this command will generate an extracted file in the `vsdstdcelldesign` directory.
 
+When the distance between i/o pins is changed  the floorplan will be changed.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/c5965fa9-01f1-465c-8128-ba43c2af298a)
+
+Git glone vsdcelldesign and list files present in it.vsdcell design already containsthe inverter standard cell.In vsdcelldesign directory when magic -T sky130A.tech sky130_inv.mag & comand is given inverter layout will be opened.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/39d42802-47f5-49ed-896c-5e12d229143c)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/8399ee03-6140-4acf-a57e-f55aaf3eb880)
+
+Next we need to create a spice file using this extracted file to use within the ngspice tool.For this the command will be ext2spice cthresh 0 rthresh 0, this will not create any new file.After that use command ext2spice , this will create a spice file in the vsdstdcelldesign directory.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/423e2d8a-328c-4f1d-bf06-f79cf75829e9)
+
+Spice file will be present in vsdcelldesign directory with name sky130_inv.spice.When the spice file is opened it has to be modified accordindly as mentioned below.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/3d98b30f-d9c3-498c-b45e-bbc6acf9068a)
+
+To run the spice file,we have to install the ngspice is vsdcelldesign directory.Command will be **sudo apt install ngspice**.When it is installed Completely open the spice file with command **ngspice sky130_inv.spice**.To plot the tansiant response curve give the command **plot y vs time a**.The transiant waveform will be obtained.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/8ac02bc6-5d0f-4857-925a-aa554f3c4873)
+
+From the plot that we got from ngspice, we need to characterize four parameters of the Inverter.
+
+Rise time : It is the time taken for the output waveform to go to 80% of its max value from 20% of its max value.
+
+x0 = 6.16138e-09, y0 = 0.660007
+
+x0 = 6.20366e-09, y0 = 2.64009
+
+From the above values, Rise time = 0.0422 ns
+
+Fall time : It is the time taken for the output to fall from 80% of its max value to 20% of its max value.
+
+x0 = 8.04034e-09, y0 = 2.64003
+
+x0 = 8.06818e-09, y0 = 0.659993
+
+From the above values , Fall Time = 0.0278 ns
+
+Propogation Delay : It is the time taken for the 50% of transition from 0 to 1 at the output for the 50% transistion from 1 to 0 at the input side.
+
+x0 = 2.18449e-09, y0 = 1.64994
+
+x0 = 2.15e-09, y0 = 1.65011 From the above values , Prop Delay = 0.034 ns
+
+Cell Fall Delay : It is the time taken for the 50% of transition from 1 to 0 at the output for the 50% transistion from 0 to 1 at the input side.
+
+x0 = 4.05432e-09, y0 = 1.65
+
+x0 = 4.05001e-09, y0 = 1.65
+
+From the above values , cell fall delay = 0.0043 ns
+
+We have succesfully characterized the Inverter, now we should create a LEF file.
+
+Lab Introduction to Sky130 pdk's and steps to download labs: To download the lab files in the home directory use the command- **wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz**. To extract the labs from the zip file use the commandtar** xfz drc_tests.tgz**In the downloaded files .In lab files , .magicrc file act as the start-up script for MAGIC.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e97947c7-9e4d-4f99-ba89-255b2db1b76e)
+
+Lab Introduction to Magic and steps to load sky130 tech-rule:
+Use the command magic -d XR to open the Magic tool.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/14a26089-8434-4891-8a92-4cd4f0904713)
+
+select the area in GUI and click on m3layer in layer box and press P.The selcted area will be filled with metal3 layer.To create via,type **cif see VIA2** in tkcon2.3 terminal.The selectedd metal will be filled with via.We can also determine the distance between each via by selecting the box between two vias and pressing the box in tkcon terminal.
+
+
+Lab exercise to fix Poly-9 error in Sky130 tech file:To load poly9 file,type **load poly** in tkcon terminal.
+
+
 
 
