@@ -11,7 +11,7 @@ This repo basically tells about the complete RTL to GDS2 flow.It includes from h
   ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/862c8752-34a2-451e-bb41-6cf7751b1d70)
 
 **Introduction to RISC-V architecture:**
-The instructions are the only way through  which  machine can understand  what operations it has to perform. ISA which mean" Instruction Set Architecture" is communicating with machine. Here we write code in c,c++ or java language then through assembler this code will be converted into assembly level language and then to the machine level language as 1or 0. 
+The instructions are the only way through  which  machine can understand  what operations it has to perform. ISA which mean" **Instruction Set Architecture**" is communicating with machine. Here we write code in c,c++ or java language then through assembler this code will be converted into assembly level language and then to the machine level language as 1or 0. 
 RTL  of the design is expressed through hardware description language which will be applied to the layout. 
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/25690e6d-550b-4de7-a0eb-664b3692db0b)
@@ -41,13 +41,16 @@ SOC Design and Openlane:
 
 
 RTL Design:
+
 RTL stands for REgister Transfer level.It is very crucial in  VLSI.
 Exactly, RTL design is pivotal in VLSI (Very Large Scale Integration) because it bridges the gap between high-level behavioral descriptions of a digital system and the low-level implementation using hardware components. At the RTL level, designers specify the functionality of the digital circuit in terms of data transfers between registers and the logical operations that manipulate these data. This abstraction allows for efficient synthesis into actual hardware components while maintaining a high level of flexibility and scalability in the design process.
 
 EDA Tools:
+
 EDA (Electronic Design Automation) tools play a crucial role in the design and verification of Integrated Circuits (ICs). These tools help engineers to create, simulate, and test the design of ICs to ensure they meet the desired performance specifications and density requirements. 
 
 PDK:
+
 A Process Design Kit (PDK) is indeed an essential collection of files and data used to model and facilitate the design of integrated circuits (ICs) within specific semiconductor fabrication processes. PDKs provide the necessary information and models that allow EDA tools to accurately simulate, design, and verify ICs. In 2020 Google collabarated with SkyWater Technology and made FOSS 130nm Production PDK OpenSource which is called as skywater pdk.It contains  process design rules like DRC,LVS,device models and digital standard cell libraries.PDK i interconnection between FAB and designers.
 
 *Process Design Rules : DRC , LVS , PEX
@@ -61,10 +64,10 @@ A Process Design Kit (PDK) is indeed an essential collection of files and data u
 Simplified RTL to GDS Flow:
 
 The RTL to GDS (RTL2GDS) flow involves several key stages that transform a high-level RTL description of a digital circuit into a GDSII file, which can be used for manufacturing the integrated circuit (IC). 
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/4612cf58-cff3-4218-84b0-6ba32f84ed75)
 
-
-ASIC Design Flow:
+**ASIC Design Flow**:
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/23437728-8900-470a-a89b-6578b358bcf6)
 
@@ -79,22 +82,15 @@ These standard cell have different models based on electrical,HDL,spice,layout(A
 
 From above figure we can say that floor planning is nothing but dividing chip die area into different system building blocks and places for I/O pads.
 
-In micro floor planning dimensions,pin location and rows definitions are present.
-
-
-Multiple Vdd and ground connnections are given through rings and straps.
+In micro floor planning dimensions,pin location and rows definitions are present.Multiple Vdd and ground connnections are given through rings and straps.
 
 3.Placement:Placement is done in two steps.One is global followed by detailed.During the Placement stage, components are positioned within the areas planned during the FloorPlanning stage. This includes placing the standard cells required in the design within the predefined cell boundaries. Placement is performed in two main stages:
 
-Global Placement:
-
-Standard cells are initially placed roughly in their target locations.
+Global Placement:Standard cells are initially placed roughly in their target locations.
 Overlaps are allowed, and precise placement rules may not be followed.
 The focus is on an approximate distribution of cells to optimize overall design metrics like timing and wire length.
 
-Detailed Placement:
-
-Standard cells are adjusted to their final, exact positions.
+Detailed Placement:Standard cells are adjusted to their final, exact positions.
 Placement rules are strictly enforced to avoid overlaps and ensure manufacturability.
 The objective is to place each cell optimally to meet timing, power, and area constraints.
 
@@ -110,13 +106,14 @@ The objective is to place each cell optimally to meet timing, power, and area co
 
 6.Sign-off:After routing is completed, the chip moves to the Sign-off stage, where various checks ensure its integrity and readiness for fabrication. Physical verification checks include Design Rule Check (DRC) and Layout Versus Schematic (LVS). During DRC, the design is verified for any violations of the design rules provided by the Process Design Kit (PDK), ensuring manufacturability and reliability. LVS checks confirm that the layout matches the gate-level netlist functionality, ensuring the physical layout performs as intended. Additionally, timing checks such as Static Timing Analysis (STA) are performed to identify any timing violations, ensuring that all timing constraints are met and the chip will operate correctly at the desired clock speed. 
 
-Introduction to OPENLANE:
+**Introduction to OPENLANE**:
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/d7786e14-8d96-4e21-9e58-2ad280848d50)
 
 OpenLane is an open-source flow initiated by e-fabless for a true open-source tape-out experiment. It is a platform that supports various tools such as Yosys, OpenRoad, Magic, KLayout, and other open-source tools. OpenLane integrates the various steps of silicon implementation and abstracts them, making the process more accessible and streamlined. At e-fabless, they have developed an SoC family called Strive. Strive is a family of open-everything SoCs, featuring open PDK (Process Design Kit), open RTL (Register Transfer Level), and open EDA (Electronic Design Automation) tools. This open-source approach aims to democratize chip design and fabrication, allowing wider access and collaboration within the semiconductor industry.
 
 Strive SOC family is as follows:
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/c9d4bd98-c4c2-490e-a448-ed8a3e8af4f6)
 
 The main goal of OpenLane is to produce a clean GDS file without any human intervention, ensuring there are no LVS, DRC, or timing violations. It is primarily optimized for the Skywater 130nm OpenPDK but also supports XFab180 and GF130G processes. OpenLane works out of the box and is capable of hardening both macros and chips. It offers two modes of operation: autonomous and interactive. One of its features, Design Space Exploration, helps find the best set of flow configurations. Currently, OpenLane includes nearly 43 design examples, with more to be added soon.
@@ -135,18 +132,17 @@ The main goal of OpenLane is to produce a clean GDS file without any human inter
 
  For physical implementation we use OpenROAD.
  It performs functions as mentioned in figure.
+ 
  ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/43f19621-b3d8-4745-836c-d46d6548556a)
 
 When routing is not done properly metal wire fabricated acts as antenna which damage the mosfet during fabrication.
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/dbbbd95b-afa1-4227-b502-686534bbf08b)
-
-
 
 To avoid this two solutions we opted.
 1.Bridging attaches a higher layer intermediary. It requires Router awareness.
 
 2.Add antenna diode cell to leak away the charges. Antenna diodes are provided by the SCL. 
-
 
 For this we took a preventive approach.
 Add a Fake antenna didoe next to every cell input after placement.
@@ -157,7 +153,7 @@ For physical verification DRC,LVS are done.
 magic tool is used for DRC and spice simulation and magic and netgen are used for LVS.
 
 
-Invoking OPENLANE in Ubantu:
+**Invoking OPENLANE in ubuntu**:
 
 ![Screenshot from 2024-05-13 15-23-30 - 1 (1)](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/10194b81-ac6c-4e6f-84cb-ef97ecbe368d)
 
@@ -171,11 +167,11 @@ To check the files after design is prepared.
 ![Screenshot from 2024-05-15 15-33-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fc169058-d8ac-4f6c-9020-465828c9c208)
 
 
-Initially every directory will be empty because we haven't performed any operations on the design.But we will have a direcrory named tmp and it contains different types of files.One of the files will be "merged.lef" file, it contains metal layer level and cell level information.merged.lef was created by merglef.py
+Initially every directory will be empty because we haven't performed any operations on the design.But we will have a direcrory named tmp and it contains different types of files.One of the files will be "**merged.lef**" file, it contains metal layer level and cell level information.merged.lef was created by merglef.py
 
 ![Screenshot from 2024-05-15 15-58-15](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f3bcaf8f-2bcd-4f96-9139-e8343cbb2181)
 
-tmp file contains empty files.It contains empty files.merged.lef file is also in tmp file,when it is opened its content will be as follows.
+**tmp** file contains empty files.It contains empty files.merged.lef file is also in tmp file,when it is opened its content will be as follows.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/22484b50-0a82-40ee-b0a4-8a3dcc457180)
 
@@ -183,7 +179,7 @@ tmp file contains empty files.It contains empty files.merged.lef file is also in
 
 All layer and via level information will be present.
 
-After opening config.tcl using less config.tcl command.
+After opening config.tcl using **less config.tcl** command.
 
 ![Screenshot from 2024-05-15 15-58-05](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/05a0d25d-5c48-4fed-9107-2e8a8ced2608)
 
@@ -193,13 +189,13 @@ After compliting run synthesis,no of flip flops,and,or,nor etc will be given.
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/7106e15a-d1ce-4d0d-8392-d2fd73a01e7a)
 
 There will be total 1613 flip flops.
-**flip flop ratio**=((no of flip flops)/(total no of cells))*100=(1613/14876)*100=10.84%
+**flip flop ratio**=((no of flip flops)/(total no of cells))*100=(1613/14876)*100=**10.84%**
 
 Before Performing Synthesis the reports directory was null. After Synthesis completed  the reports that are generated during synthesis will be  in the reports directory.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/26a8e433-ce3c-4f44-a707-03ea5977cbe3)
 
-when we open the 2-opensta.rpt file ,it showed delay and cap,fanout etc.
+when we open the **2-opensta.rpt** file ,it showed delay and cap,fanout etc.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0e5f8e17-e4ea-4259-a200-424d8dd7413b)
 
@@ -210,8 +206,8 @@ How to define width, height of core and die?
 Let us consider the basic netlest.Netlist is nothing but which defines all the connectivity between different components.When we are defining about the dimensions of chip,its nostly dependent on dimensions of gates present in the chip.
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/179560ea-65bf-4a38-893e-be455adab596)
 
-Utilisation factor=area of netlist/total area of core.
-It helps to determine how much area is utilised in chip die.If its 1 then chip die is completely utilised and no space left for extra cells.
+Utilisation factor=area of netlist/total area of core.It helps to determine how much area is utilised in chip die.If its 1 then chip die is completely utilised and no space left for extra cells.
+
 Aspect ratio=height/width.If aspect ratio is 1 then it is square otherwise it will be rectangle.
 
 Concept of pre placement cells:
@@ -261,8 +257,10 @@ In the OpenLane least priority  is for default(Floorplanning.tcl) and the second
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/9531c85b-8d5a-4551-81f5-ea6c5afceabe)
 
-When we open config.tcl file in picorv32a,it open ups like the below figure.
+When we open **config.tcl file in picorv32a**,it open ups like the below figure.
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/3bc178db-6e55-4224-9043-05c3b7175e55)
+
 vertical metal willbe one more thaan horizontal metal.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e3fdabdb-5f27-4384-bcef-bf0137bb017f)
@@ -320,7 +318,7 @@ Lab steps to create std cell layout and extract spice netlist:
 
 To extract the SPICE netlist for an inverter from the MAGIC tool for simulation in ngspice, follow these steps:
 
-First, you need to create an extraction file for the inverter. This can be done by using the `extract all` command in the tkcon window within MAGIC. Running this command will generate an extracted file in the `vsdstdcelldesign` directory.
+First, you need to create an extraction file for the inverter. This can be done by using the `extract all` command in the tkcon window within MAGIC. Running this command will generate an extracted file in the `**vsdstdcelldesign**` directory.
 
 When the distance between i/o pins is changed  the floorplan will be changed.
 
@@ -332,7 +330,9 @@ Git glone vsdcelldesign and list files present in it.vsdcell design already cont
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/8399ee03-6140-4acf-a57e-f55aaf3eb880)
 
-Next we need to create a spice file using this extracted file to use within the ngspice tool.For this the command will be ext2spice cthresh 0 rthresh 0, this will not create any new file.After that use command ext2spice , this will create a spice file in the vsdstdcelldesign directory.
+Next we need to create a spice file using this extracted file to use within the ngspice tool.
+
+For this the command will be **ext2spice cthresh 0 rthresh 0**, this will not create any new file.After that use command **ext2spice** , this will create a spice file in the vsdstdcelldesign directory.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/423e2d8a-328c-4f1d-bf06-f79cf75829e9)
 
@@ -340,7 +340,9 @@ Spice file will be present in vsdcelldesign directory with name sky130_inv.spice
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/3d98b30f-d9c3-498c-b45e-bbc6acf9068a)
 
-To run the spice file,we have to install the ngspice is vsdcelldesign directory.Command will be **sudo apt install ngspice**.When it is installed Completely open the spice file with command **ngspice sky130_inv.spice**.To plot the tansiant response curve give the command **plot y vs time a**.The transiant waveform will be obtained.
+To run the spice file,we have to install the ngspice is vsdcelldesign directory.Command will be **sudo apt install ngspice**.When it is installed Completely open the spice file with command **ngspice sky130_inv.spice**.
+
+To plot the tansiant response curve give the command **plot y vs time a**.The transiant waveform will be obtained.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/8ac02bc6-5d0f-4857-925a-aa554f3c4873)
 
@@ -378,7 +380,9 @@ From the above values , cell fall delay = 0.0043 ns
 
 We have succesfully characterized the Inverter, now we should create a LEF file.
 
-Lab Introduction to Sky130 pdk's and steps to download labs: To download the lab files in the home directory use the command- **wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz**. To extract the labs from the zip file use the commandtar** xfz drc_tests.tgz**In the downloaded files .In lab files , .magicrc file act as the start-up script for MAGIC.
+Lab Introduction to Sky130 pdk's and steps to download labs: To download the lab files in the home directory use the command- **wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz**.
+
+To extract the labs from the zip file use the command **tar xfz drc_tests.tgz**.In the downloaded files .In lab files , **.magicrc** file act as the start-up script for MAGIC.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e97947c7-9e4d-4f99-ba89-255b2db1b76e)
 
@@ -386,7 +390,8 @@ Lab Introduction to Sky130 pdk's and steps to download labs: To download the lab
 
 
 Lab Introduction to Magic and steps to load sky130 tech-rule:
-Use the command magic -d XR to open the Magic tool.
+
+Use the command **magic -d XR** to open the Magic tool.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/14a26089-8434-4891-8a92-4cd4f0904713)
 
@@ -403,13 +408,13 @@ Comparing the spacing between Poly resistor and poly in the layout with the actu
 
 Lab challenge exercise to describe DRC error as geometrical construct
 
-Now load nwell.mag file into the magic and check for violations.:
+Now load **nwell.mag file**into the magic and check for violations.:
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/6b2ce5c3-79c0-433c-98ad-6fb756afbe82)
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/a7001d96-6dd2-4bd2-b244-2843872d7dae)
 
-When we give the drc check its showing error in poly9.So we hve to solve the issueby making chnes as below.
+When we give the drc check its showing error in **poly9**.So we hve to solve the issueby making chnes as below.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f7fc3d60-5fa7-4a92-ab1b-51f9562ef0fd)
 
@@ -422,9 +427,10 @@ Pre-layout timing analysis and importance of good clock tree:
 
 1.The Input and output ports must lie on the intersection of the Vertical and Horizontal tracks.
 2.The width of the standard cell should be an odd multiple of the track pitch and height should be an odd multiple of track vertical pitch.
-Open the tracks.info file to know more about tracks
+Open the tracks.info file to know more about tracks.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e5001604-52a7-400d-a189-a3d218a7a41f)
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/8333fa60-4c4c-4da6-8970-4e466c324351)
 
 In the cell design input and output ports are on the li1 layer.We need to convert the grid into tracks.Open the tkcon window and give the command for grid according to the track file.
@@ -434,11 +440,11 @@ In the cell design input and output ports are on the li1 layer.We need to conver
 Now we can see that both input and output ports are placed at the intersection of the tracks. Here our second condition also satisfies as 3 boxes are covered between the boundaries.
 
 Lab steps to convert magic layout to standard cell LEF:
-Now we need to extract the LEF file.First save .mag file by using the command save sky130_vsdinv.mag in the tkcon terminal.
+Now we need to **extract the LEF file**.First save .mag file by using the command **save sky130_vsdinv.mag** in the tkcon terminal.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fff8fa89-590f-489e-a04f-096ea49118bb)
 
-Now in the tkcon terminal use the command lef write in order to create a LEF file.
+Now in the tkcon terminal use the command **lef write** in order to create a LEF file.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/a7263cfc-fc78-43fa-8d93-916ac613787d)
 
@@ -461,9 +467,9 @@ Now we need to make some changes in the .config file as shown in the image.
 
 After that we need to open bash using command docker being in openlane directory. And enter into the openlane and prepare the design as shown in figure. Once preparation is complete we need to use following commands.
 
-set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+**set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 
-add_lefs -src $lefs
+add_lefs -src $lefs**
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/d39cee22-ee2f-4780-a641-c3f9351f7a91)
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/208ed833-05c1-46ab-81ab-e7ba79dc5422)
@@ -472,17 +478,17 @@ add_lefs -src $lefs
 
 As we completed with synthesis stage, now we need to perform floorplan by using the following commands
 
-init_floorplan
+**init_floorplan
 
 place_io
 
 tap_decap_or
-
+**
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/b28e4921-05a9-4418-8c06-d937430d839f)
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/b59e139a-3d62-4005-a66f-ad9b0e47ee27)
 
-Now as we done with Floorplan stage, we can proceed to placement stage by using the command run_placement.
+Now as we done with Floorplan stage, we can proceed to placement stage by using the command**run_placement**.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/35b8b67e-fa8f-49b2-88e1-e00e2c526536)
 
@@ -495,11 +501,13 @@ Now after the placement is done,lets check whether the cell that we have created
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/46d2797f-462f-4a9b-ad2e-e0f22c3eeceb)
 
 Timing analysis with ideal clocks using openSTA:
-Next step is to perform STA on the design. For this first we need to complete the synthesis stage. After synthesis is done some steps need to be followed.First, we need to create a new file **pre_sta.conf** in the openlane directory.
+Next step is to perform STA on the design. For this first we need to complete the synthesis stage. 
+
+After synthesis is done some steps need to be followed.First, we need to create a new file **pre_sta.conf** in the openlane directory.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/521e3fd0-f32a-4ef0-b340-0ce84010d2e7)
 
-After that we need to create another file called my_base.sdc in the src directory which is picorv32a directory.
+After that we need to create another file called **my_base.sd**c in the src directory which is picorv32a directory.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/94e96f21-51b8-466c-b1bc-6f41381f3e92)
 
@@ -514,7 +522,9 @@ Lab steps to run CTS using TritonCTS-After improving the timing of the design, t
 
 Now the design will get updated with the improved version.
 
-Now we can start working on it, starting with Floorplan by using the same commands that were used before. After succesful completion of Floorplan we should do placement by using the command **run_placement.**
+Now we can start working on it, starting with Floorplan by using the same commands that were used before.
+
+After succesful completion of Floorplan we should do placement by using the command **run_placement.**
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/44e65a3a-7147-4c41-887d-c51f3dd5a5ea)
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/15694ebd-acb3-4e6a-ab1d-d4b33fbc0134)
@@ -558,7 +568,7 @@ exit**
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/4ee4c852-f979-4a01-a34f-ff1afa74d11d)
 
-Lab exercise to replace bigger CTS buffers-
+**Lab exercise to replace bigger CTS buffers-
 
 first remove the clkbuf_1 from the list by using the below command.
 
@@ -568,7 +578,7 @@ set the right def file and run cts:
 
 set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/placement/picorv32a.placement.def
 run_cts
-
+**
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e137503d-bb0d-445f-bf27-dae74aaa8c97)
 
 To Enter the openROAD flow and check timing , use the following commands.
@@ -605,7 +615,9 @@ echo $::env(CTS_CLK_BUFFER_LIST)**
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/858cf1df-5650-47f9-9bac-0dc65bf2723b)
 
 Final step for RTL2GDS using tritinRoute and openSTA:
-Power Distribution Network and routing-After completion of CTS, now we need to lay down power distribution network(PDN) for the design and it is done by using the command **gen_pdn**
+Power Distribution Network and routing-After completion of CTS, now we need to lay down power distribution network(PDN) for the design .
+
+It is done by using the command **gen_pdn**
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/313deb1e-1275-4470-a53e-658caa48950a)
 
@@ -623,7 +635,7 @@ We can do the routing by using the command-**run_routing**
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/1ad294ef-ab6e-4b68-b186-0dde67e8767f)
 
-magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 15-pdn.def &
+**magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 15-pdn.def &**
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/c09109fc-529e-492a-a928-63d33dfb2ab0)
 
