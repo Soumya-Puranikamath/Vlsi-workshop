@@ -421,6 +421,10 @@ When we give the drc check its showing error in poly9.So we hve to solve the iss
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/bf99a7ce-9330-48a8-b631-7458ec441742)
 
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/63aca508-e1fe-43b0-b49e-d71e3fdb3ff9)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/63aa7bbd-ebcb-43f6-a395-13883bb98faf)
+
+
 Pre-layout timing analysis and importance of good clock tree:
 *Lab steps to convert grid info to track info:Now to proceed further we will be needing LEF file of the Inverter cell. we need to extract if from the current Inverter cell.From PNR point of view, while designing standard cell set two things must be considered.
 
@@ -518,6 +522,6 @@ Now the design will get updated with the improved version.
 
 Now we can start working on it, starting with Floorplan by using the same commands that were used before. After succesful completion of Floorplan we should do placement by using the **command run_placement.**
 
-
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/44e65a3a-7147-4c41-887d-c51f3dd5a5ea)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/15694ebd-acb3-4e6a-ab1d-d4b33fbc0134)
 
