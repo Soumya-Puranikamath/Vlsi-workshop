@@ -209,8 +209,6 @@ How to define width, height of core and die?
 
 Let us consider the basic netlest.Netlist is nothing but which defines all the connectivity between different components.When we are defining about the dimensions of chip,its nostly dependent on dimensions of gates present in the chip.
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/179560ea-65bf-4a38-893e-be455adab596)
-![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/3b0c26d8-2dcf-4b3d-b110-9d7c11a48dc3)
-![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/8fa17ac2-24d7-4825-bb12-0ad604c0e3b1)
 
 Utilisation factor=area of netlist/total area of core.
 It helps to determine how much area is utilised in chip die.If its 1 then chip die is completely utilised and no space left for extra cells.
@@ -310,7 +308,7 @@ After run_placement:
 After the placement is done,to check the cells are correctly placed or not we go for GUI.The command will be
 **magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &**
 
-![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fa41bd99-1b12-4a7b-8228-816edf66f9f7)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e00ebbfd-bdca-47a8-a149-2000ac6cc2af)
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0f6149d0-b74a-4e12-a188-8c5b56cf335e)
 
@@ -418,8 +416,6 @@ When we give the drc check its showing error in poly9.So we hve to solve the iss
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/bf99a7ce-9330-48a8-b631-7458ec441742)
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/63aca508-e1fe-43b0-b49e-d71e3fdb3ff9)
-![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/63aa7bbd-ebcb-43f6-a395-13883bb98faf)
-
 
 Pre-layout timing analysis and importance of good clock tree:
 *Lab steps to convert grid info to track info:Now to proceed further we will be needing LEF file of the Inverter cell. we need to extract if from the current Inverter cell.From PNR point of view, while designing standard cell set two things must be considered.
@@ -525,7 +521,8 @@ Now we can start working on it, starting with Floorplan by using the same comman
 
 After placement is done, we can proceed with cts stage. To perform CTS we should use the command **run_cts**.
 
-![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e00ebbfd-bdca-47a8-a149-2000ac6cc2af)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fa41bd99-1b12-4a7b-8228-816edf66f9f7)
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/7d536a0f-61fc-4ae4-84c1-71894909f55c)
 
 Post-CTS OpenROAD timing analysis:
