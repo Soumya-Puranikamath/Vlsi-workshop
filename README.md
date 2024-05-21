@@ -298,7 +298,6 @@ During placement, it's crucial to consider the estimated wire length and positio
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/56847923-ab77-47e0-8ab5-6268f93546c5)
 
-
 After run_placement:
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0fb3cb2c-200f-49fd-8f94-0b9384f1a991)
