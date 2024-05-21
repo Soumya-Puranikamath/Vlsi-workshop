@@ -1,4 +1,4 @@
-Hello everyone.Here I will be posting what I learnt during 2 weeks workshop under VSD.
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/416f7731-00b1-4f10-af02-429e393a8555)Hello everyone.Here I will be posting what I learnt during 2 weeks workshop under VSD.
 * Learning the importance of VLSI in today's world.
 * Aurdino as example,learnt what is pakaging actually and this package contain small chip.
 * Different types of packaging such as QFN(quad flat no-leads), DIP(dual-in line pacakging), TO packaging and other different types
@@ -522,7 +522,7 @@ Lab steps to run CTS using TritonCTS-After improving the timing of the design, t
 
 Now the design will get updated with the improved version.
 
-Now we can start working on it, starting with Floorplan by using the same commands that were used before. After succesful completion of Floorplan we should do placement by using the **command run_placement.**
+Now we can start working on it, starting with Floorplan by using the same commands that were used before. After succesful completion of Floorplan we should do placement by using the command **run_placement.**
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/44e65a3a-7147-4c41-887d-c51f3dd5a5ea)
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/15694ebd-acb3-4e6a-ab1d-d4b33fbc0134)
@@ -531,4 +531,87 @@ After placement is done, we can proceed with cts stage. To perform CTS we should
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e00ebbfd-bdca-47a8-a149-2000ac6cc2af)
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/7d536a0f-61fc-4ae4-84c1-71894909f55c)
+
+Post-CTS OpenROAD timing analysis:
+Once the cts is completed user the following commands.
+**openroad
+
+read_lef /openLANE_flow/designs/picorv32a/runs/05-05_10-43/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/cts/picorv32a.cts.def
+write_db pico_cts.db
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
+exit**
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/4066f61a-05b5-44ed-8535-7394d44c96a7)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f66231e3-df0a-4d8d-91ff-d2e98c6bdf61)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/4ee4c852-f979-4a01-a34f-ff1afa74d11d)
+
+Lab exercise to replace bigger CTS buffers-
+
+first remove the clkbuf_1 from the list by using the below command.
+
+set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
+
+set the right def file and run cts:
+
+set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/placement/picorv32a.placement.def
+run_cts
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e137503d-bb0d-445f-bf27-dae74aaa8c97)
+
+To Enter the openROAD flow and check timing , use the following commands.
+
+**openroad
+read_lef /openLANE_flow/designs/picorv32a/runs/05-05_10-43/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/cts/picorv32a.cts.def
+write_db pico_cts1.db
+read_db pico_cts1.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
+exit
+
+echo $::env(CTS_CLK_BUFFER_LIST)
+set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]
+echo $::env(CTS_CLK_BUFFER_LIST)**
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/858cf1df-5650-47f9-9bac-0dc65bf2723b)
+
+Final step for RTL2GDS using tritinRoute and openSTA:
+Power Distribution Network and routing-After completion of CTS, now we need to lay down power distribution network(PDN) for the design and it is done by using the command **gen_pdn**
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/313deb1e-1275-4470-a53e-658caa48950a)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fe20580a-b5ad-49a5-bdd2-d5298fb887b7)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/49a473d6-31f3-4223-bf23-356cd995a083)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/896519e0-abcd-4201-ada0-63d656c2cabc)
+
+The power rails can be seen in this design so PDN is successful.
+
+Basics of global and detail routing and configure TritonRoute:
+
+We can do the routing by using the command-**run_routing**
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/1ad294ef-ab6e-4b68-b186-0dde67e8767f)
+
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 15-pdn.def &
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/c09109fc-529e-492a-a928-63d33dfb2ab0)
+
+
 
