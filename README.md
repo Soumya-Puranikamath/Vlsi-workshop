@@ -634,5 +634,6 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/c09109fc-529e-492a-a928-63d33dfb2ab0)
 
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/010cb3bf-ebbd-43b9-ae6f-a85bd0f1ba7c)
 
 
