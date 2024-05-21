@@ -516,7 +516,9 @@ Now we need to use the command **sta pre_sta.conf** being in the openlane direct
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/af9b6100-b6e6-41ad-a0bd-1c6ae1ca8933)
 
 Clock tree synthesis TritonCTS and signal integrity:
-Lab steps to run CTS using TritonCTS-After improving the timing of the design, the previous design should be replaced with improved design by using the command **write_verilog //path of the previous design//**
+Lab steps to run CTS using TritonCTS-After improving the timing of the design, the previous design should be replaced with improved design by using the command.
+
+**write verilog  /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/21-05_05-39/results/synthesis/picorv32a.synthesis.v**
 
 Now the design will get updated with the improved version.
 
@@ -524,4 +526,9 @@ Now we can start working on it, starting with Floorplan by using the same comman
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/44e65a3a-7147-4c41-887d-c51f3dd5a5ea)
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/15694ebd-acb3-4e6a-ab1d-d4b33fbc0134)
+
+After placement is done, we can proceed with cts stage. To perform CTS we should use the command **run_cts**.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e00ebbfd-bdca-47a8-a149-2000ac6cc2af)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/7d536a0f-61fc-4ae4-84c1-71894909f55c)
 
