@@ -305,6 +305,8 @@ After run_placement:
 After the placement is done,to check the cells are correctly placed or not we go for GUI.The command will be
 **magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &**
 
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/9ee901e8-1aa8-4da3-a100-6bbaf3c0d11a)
+
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e00ebbfd-bdca-47a8-a149-2000ac6cc2af)
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/0f6149d0-b74a-4e12-a188-8c5b56cf335e)
