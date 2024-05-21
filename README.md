@@ -463,7 +463,7 @@ Now we need to make some changes in the .config file as shown in the image.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/c7a0ec34-4839-4bd2-a616-e58d27706d17)
 
-After that we need to open bash using command docker being in openlane directory. And enter into the open lane and prepare the design as shown in figure. Once preparation is complete we need to use following commands
+After that we need to open bash using command docker being in openlane directory. And enter into the openlane and prepare the design as shown in figure. Once preparation is complete we need to use following commands.
 
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 
@@ -486,7 +486,10 @@ tap_decap_or
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/b59e139a-3d62-4005-a66f-ad9b0e47ee27)
 
-Now as we done with Floorplan stage, we can proceed to placement stage by using the command run_placemen.
+Now as we done with Floorplan stage, we can proceed to placement stage by using the command run_placement.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/35b8b67e-fa8f-49b2-88e1-e00e2c526536)
+
+Now after the placement is done,lets check whether the cell that we have created is placed in the design. For this being in the placement directory we should use the command.
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 
