@@ -407,6 +407,86 @@ Comparing the spacing between Poly resistor and poly in the layout with the actu
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/888a7edd-64b6-4ff9-937d-6702917708f6)
 
-To solve the issue we should make changes in poly9 file as below showed.
+Lab challenge exercise to describe DRC error as geometrical construct
 
+Now load nwell.mag file into the magic and check for violations.:
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/6b2ce5c3-79c0-433c-98ad-6fb756afbe82)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/a7001d96-6dd2-4bd2-b244-2843872d7dae)
+
+When we give the drc check its showing error in poly9.So we hve to solve the issueby making chnes as below.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/f7fc3d60-5fa7-4a92-ab1b-51f9562ef0fd)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/bf99a7ce-9330-48a8-b631-7458ec441742)
+
+Pre-layout timing analysis and importance of good clock tree:
+*Lab steps to convert grid info to track info:Now to proceed further we will be needing LEF file of the Inverter cell. we need to extract if from the current Inverter cell.From PNR point of view, while designing standard cell set two things must be considered.
+
+1.The Input and output ports must lie on the intersection of the Vertical and Horizontal tracks.
+2.The width of the standard cell should be an odd multiple of the track pitch and height should be an odd multiple of track vertical pitch.
+Open the tracks.info file to know more about tracks
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e5001604-52a7-400d-a189-a3d218a7a41f)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/8333fa60-4c4c-4da6-8970-4e466c324351)
+
+In the cell design input and output ports are on the li1 layer.We need to convert the grid into tracks.Open the tkcon window and give the command for grid according to the track file.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/3fe0eac5-3192-46ae-8e44-7f65a3b12310)
+
+Now we can see that both input and output ports are placed at the intersection of the tracks. Here our second condition also satisfies as 3 boxes are covered between the boundaries.
+
+Lab steps to convert magic layout to standard cell LEF:
+Now we need to extract the LEF file.First save .mag file by using the command save sky130_vsdinv.mag in the tkcon terminal.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/fff8fa89-590f-489e-a04f-096ea49118bb)
+
+Now in the tkcon terminal use the command lef write in order to create a LEF file.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/a7263cfc-fc78-43fa-8d93-916ac613787d)
+
+Now we can open the LEF file and go through it.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/58221b2d-ff40-45a2-a49c-6031f8b962fb)
+
+Introduction to timing libs and steps to include new cell in synthesis:
+To proceed futher lets keep all the required files at single place thet is in src directory. First copy the extracted LEF file into src directory.
+
+After LEF file we need to copy the required libraries, here we will have different types of libraries such as fast , slow, typical etc.. , we need to copy all those .lib files to src directory by using cp command.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/e21f3939-f201-47d2-b670-768d95449a00)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/96d0e444-b38b-4972-8001-70877e28fa29)
+
+Now we need to make some changes in the .config file as shown in the image.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/c7a0ec34-4839-4bd2-a616-e58d27706d17)
+
+After that we need to open bash using command docker being in openlane directory. And enter into the open lane and prepare the design as shown in figure. Once preparation is complete we need to use following commands
+
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+
+add_lefs -src $lefs
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/d39cee22-ee2f-4780-a641-c3f9351f7a91)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/208ed833-05c1-46ab-81ab-e7ba79dc5422)
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/1adc582f-8133-4cb0-8449-6aaeb1e204f4)
+
+
+As we completed with synthesis stage, now we need to perform floorplan by using the following commands
+
+init_floorplan
+
+place_io
+
+tap_decap_or
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/b28e4921-05a9-4418-8c06-d937430d839f)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/b59e139a-3d62-4005-a66f-ad9b0e47ee27)
+
+Now as we done with Floorplan stage, we can proceed to placement stage by using the command run_placemen.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/35b8b67e-fa8f-49b2-88e1-e00e2c526536)
 
