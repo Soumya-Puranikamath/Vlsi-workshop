@@ -1,4 +1,4 @@
-![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/416f7731-00b1-4f10-af02-429e393a8555)Hello everyone.Here I will be posting what I learnt during 2 weeks workshop under VSD.
+Hello everyone.Here I will be posting what I learnt during 2 weeks workshop under VSD.
 * Learning the importance of VLSI in today's world.
 * Aurdino as example,learnt what is pakaging actually and this package contain small chip.
 * Different types of packaging such as QFN(quad flat no-leads), DIP(dual-in line pacakging), TO packaging and other different types
@@ -518,7 +518,7 @@ Now we need to use the command **sta pre_sta.conf** being in the openlane direct
 Clock tree synthesis TritonCTS and signal integrity:
 Lab steps to run CTS using TritonCTS-After improving the timing of the design, the previous design should be replaced with improved design by using the command.
 
-**write verilog  /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/21-05_05-39/results/synthesis/picorv32a.synthesis.v**
+**write_verilog  /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/21-05_05-39/results/synthesis/picorv32a.synthesis.v**
 
 Now the design will get updated with the improved version.
 
@@ -534,17 +534,27 @@ After placement is done, we can proceed with cts stage. To perform CTS we should
 
 Post-CTS OpenROAD timing analysis:
 Once the cts is completed user the following commands.
+
 **openroad
 
 read_lef /openLANE_flow/designs/picorv32a/runs/05-05_10-43/tmp/merged.lef
+
 read_def /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/cts/picorv32a.cts.def
+
 write_db pico_cts.db
+
 read_db pico_cts.db
+
 read_verilog /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/synthesis/picorv32a.synthesis_cts.v
+
 read_liberty $::env(LIB_SYNTH_COMPLETE)
+
 link_design picorv32a
+
 read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+
 set_propagated_clock [all_clocks]
+
 report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
 
 exit**
@@ -572,20 +582,31 @@ To Enter the openROAD flow and check timing , use the following commands.
 
 **openroad
 read_lef /openLANE_flow/designs/picorv32a/runs/05-05_10-43/tmp/merged.lef
+
 read_def /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/cts/picorv32a.cts.def
+
 write_db pico_cts1.db
+
 read_db pico_cts1.db
+
 read_verilog /openLANE_flow/designs/picorv32a/runs/05-05_10-43/results/synthesis/picorv32a.synthesis_cts.v
+
 read_liberty $::env(LIB_SYNTH_COMPLETE)
+
 link_design picorv32a
+
 read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+
 set_propagated_clock [all_clocks]
+
 report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
 
 exit
 
 echo $::env(CTS_CLK_BUFFER_LIST)
+
 set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]
+
 echo $::env(CTS_CLK_BUFFER_LIST)**
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/858cf1df-5650-47f9-9bac-0dc65bf2723b)
