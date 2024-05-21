@@ -491,5 +491,33 @@ Now as we done with Floorplan stage, we can proceed to placement stage by using 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/35b8b67e-fa8f-49b2-88e1-e00e2c526536)
 
 Now after the placement is done,lets check whether the cell that we have created is placed in the design. For this being in the placement directory we should use the command.
-magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+
+**magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &**
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/df4e04ad-bbc6-4db6-b9fa-94f855797281)
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/46d2797f-462f-4a9b-ad2e-e0f22c3eeceb)
+
+Timing analysis with ideal clocks using openSTA:
+Next step is to perform STA on the design. For this first we need to complete the synthesis stage. After synthesis is done some steps need to be followed.First, we need to create a new file **pre_sta.conf** in the openlane directory.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/521e3fd0-f32a-4ef0-b340-0ce84010d2e7)
+
+After that we need to create another file called my_base.sdc in the src directory which is picorv32a directory.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/94e96f21-51b8-466c-b1bc-6f41381f3e92)
+
+Now we need to use the command **sta pre_sta.conf** being in the openlane directory.We can say that STA is succesful when the slack that we will get equals to that of synthesis stage.As we can see that Slack is equal to of that we got in synthesis stage. So STA is succesful.
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/af9b6100-b6e6-41ad-a0bd-1c6ae1ca8933)
+
+Clock tree synthesis TritonCTS and signal integrity:
+Lab steps to run CTS using TritonCTS-After improving the timing of the design, the previous design should be replaced with improved design by using the command **write_verilog //path of the previous design//**
+
+Now the design will get updated with the improved version.
+
+Now we can start working on it, starting with Floorplan by using the same commands that were used before. After succesful completion of Floorplan we should do placement by using the **command run_placement.**
+
+
+![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/44e65a3a-7147-4c41-887d-c51f3dd5a5ea)
 
