@@ -398,7 +398,6 @@ Use the command **magic -d XR** to open the Magic tool.
 
 select the area in GUI and click on m3layer in layer box and press P.The selcted area will be filled with metal3 layer.To create via,type **cif see VIA2** in tkcon2.3 terminal.The selectedd metal will be filled with via.We can also determine the distance between each via by selecting the box between two vias and pressing the box in tkcon terminal.
 
-
 Lab exercise to fix Poly-9 error in Sky130 tech file:To load poly9 file,type **load poly** in tkcon terminal.
 
 ![image](https://github.com/Soumya-Puranikamath/Vlsi-workshop/assets/169351521/63964005-e1b6-402b-a1c6-3bc3dfcdf2de)
