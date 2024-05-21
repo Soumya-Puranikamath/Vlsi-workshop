@@ -1,8 +1,4 @@
-Hello everyone.Here I will be posting what I learnt during 2 weeks workshop under VSD.
-* Learning the importance of VLSI in today's world.
-* Aurdino as example,learnt what is pakaging actually and this package contain small chip.
-* Different types of packaging such as QFN(quad flat no-leads), DIP(dual-in line pacakging), TO packaging and other different types
-
+This repo basically tells about the complete RTL to GDS2 flow.It includes from how to communicate with machine to routing and gds process of chip.
   
  chip as following parameter:
  
